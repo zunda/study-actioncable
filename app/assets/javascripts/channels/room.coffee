@@ -6,10 +6,13 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    alert(data['message'])
+    $('#messages').append('  <p>' + escape(data['message']) + '</p>\n')
 
   speak: (message) ->
     @perform 'speak', message: message
+
+escape = (text) ->
+  text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt').replace(/"/g, '&quot;').replace(/'/, '&#039;')
 
 $(document).on 'keypress', '[data-behavior~=room_speaker]', (event) ->
   if event.keyCode is 13 # return/enter = send
