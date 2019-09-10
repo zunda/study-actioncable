@@ -1,0 +1,18 @@
+{
+  "addons": [
+    "heroku-postgresql",
+    "heroku-redis"
+  ],
+  "buildpacks": [
+
+  ],
+  "description": "Trying ActionCable",
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "study-actioncable",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
