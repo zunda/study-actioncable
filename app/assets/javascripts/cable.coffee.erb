@@ -1,0 +1,9 @@
+#= require action_cable
+#= require_self
+#= require_tree ./channels
+#
+<% if ENV['AC_STALE_THRESHOLD'] %>
+ActionCable.ConnectionMonitor.staleThreshold = <%= ENV['AC_STALE_THRESHOLD'] %>;
+<% end %>
+@App ||= {}
+App.cable = ActionCable.createConsumer()
