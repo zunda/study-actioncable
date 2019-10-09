@@ -1,24 +1,9 @@
-# README
+# StudyActioncable
+A minimal chat application without even a history of conversation.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Configurations
+This application is to test behavior of Heroku routers.
 
-Things you may want to cover:
+[`cable.coffee`](/app/assets/javascripts/cable.coffee) defines `staleThreshold` to be 120 seconds. The browser waits for 120 seconds before trying to reconnect the WebSocket to the server.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The [`action_cable.rb` initializer](config/initializers/action_cable.rb) looks up the `AC_BEAT_INTERVAL` environment variable. Set this to 55 or more to trigger the [H15 - Idle connection](https://devcenter.heroku.com/articles/error-codes#h15-idle-connection) error.
